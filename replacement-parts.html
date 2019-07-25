@@ -105,8 +105,110 @@
       border-right: 1px #888 dotted;
     }
   </style>
+
+
+
+<style>
+.show {
+    width: 80%;
+    /* max-width: 400px; */
+  }
+
+  .product-details-modal {
+    position: absolute;
+    width: 100vw;
+    /* width: 0; */
+    height: 0;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background: #fff;
+    z-index: 10;
+    filter: opacity(0);
+    transition: 0.5s;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .product-details-modal.show {
+    width: 100vw;
+    height: 100vh;
+    /* max-width: 650px;   */
+    filter: opacity(1);
+    border: 1rem rgba(0, 0, 0, 0.4) solid;
+    padding: 2rem;
+  }
+
+  aside {
+    color: rgb(94, 94, 94);
+    font-family: Montserrat, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 1rem auto 1rem;
+    width: 80%;
+  }
+
+  .unit-name {
+    margin-bottom: 2rem;
+  }
+
+  .unit-name b {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  .unit-tonnage {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .unit-seer {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .unit-image {
+    float: left;
+    margin-right: 3rem;
+  }
+
+  .product-details-modal {
+    border: 1px solid #00f;
+  }
+  .product-details {
+    position: relative;
+  }
+
+  .close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    padding: 0.5rem;
+    background: #00aeef;
+    color: #fff;
+  }
+
+  .phone-button {
+    background: #007fb0;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 0 1rem 1rem 1rem;
+  }
+</style>
+
+
+
   <div class="category">
-    <div class="product-rows"></div>
+    <div class="product-rows-box"></div>
+
+
+
+  
+
+
+
   </div>
 
   <script>
@@ -121,7 +223,12 @@
             name: 'Air Conditioner #1',
             desc: 'Description of the First product.',
             seer: '26',
-            btu: 'xx'
+            btu: 'xx',
+            details: {
+              model: 'XC25',
+              longDesc: `<p>The Lennox XC25 is a variable-capacity air conditioner. It is considered the most precise and efficient ac unit you can buy! Precise Comfort® technology adjusts cooling output in increments as small as 1%, perfectly matching your energy use with your comfort.</p> 
+              <p>SilentComfort™ technology make it 50% quieter than a standard air conditioner! </p>`
+            }
           },
           {
             img: 'https://rynoproducts.com/images/products/xc21-thumb.jpg',
@@ -153,17 +260,19 @@
       }
     ];
 
-    var makeProductsHTML = function makeProductsHTML(_ref) {
-      var _ref$img = _ref.img,
-        img = _ref$img === void 0 ? '' : _ref$img,
-        _ref$name = _ref.name,
-        name = _ref$name === void 0 ? '' : _ref$name,
-        _ref$desc = _ref.desc,
-        desc = _ref$desc === void 0 ? '' : _ref$desc,
-        _ref$seer = _ref.seer,
-        seer = _ref$seer === void 0 ? '' : _ref$seer,
-        _ref$btu = _ref.btu,
-        btu = _ref$btu === void 0 ? '' : _ref$btu;
+    var makeProductsHTML = function makeProductsHTML(productDtls) {
+      var $img = productDtls.img,
+        img = $img === void 0 ? '' : $img,
+        $name = productDtls.name,
+        name = $name === void 0 ? '' : $name,
+        $desc = productDtls.desc,
+        desc = $desc === void 0 ? '' : $desc,
+        $seer = productDtls.seer,
+        seer = $seer === void 0 ? '' : $seer,
+        $btu = productDtls.btu,
+        btu = $btu === void 0 ? '' : $btu,
+        $details = productDtls.details,
+        details = $details === void 0 ? '' : $details;
       return '\n    <div class="row">\n        <div class="image-cell">\n            '
         .concat(
           img ? '<img src="' + img + '" />' : '',
@@ -175,7 +284,9 @@
           '</div>\n        </section>\n        <section class="product-specs">\n          <div class="product-seer">SEER: '
         )
         .concat(seer, '</div>\n          <div class="product-btu">BTU: ')
-        .concat(btu, '</div>\n        </section>\n      </div>\n    ');
+        .concat(btu, '</div>\n        </section>\n      </div>\n    ')
+        .concat('<div class="product-details-modal"> <button class="close-modal">X</button>         <div class="product-details">' + (img ? '<img src="' + img + '" />' : '') + 'Details:\n Model: ', details.model)
+        .concat('\n'+details.longDesc, '</div></div>');
     };
 
     var productsHTML = products.reduce(function(categoryList, category) {
@@ -191,13 +302,89 @@
           '</div>')
       );
     }, '');
-    var productRows = document.querySelector('.product-rows');
-    productRows.innerHTML = productsHTML;
+    var productRowsBox = document.querySelector('.product-rows-box');
+    productRowsBox.innerHTML = productsHTML;
+    
     var categoryHeaders = document.querySelectorAll('header.row');
     categoryHeaders.forEach(function(header) {
       header.addEventListener('click', function(e) {
         e.currentTarget.parentElement.classList.toggle('expanded');
       });
     });
+
+
+
+
+    const d = document,
+    unitName = d.querySelector('.unit-name'),
+    unitTonnage = d.querySelector('.unit-tonnage'),
+    unitSeer = d.querySelector('.unit-seer'),
+    unitImage = d.querySelector('.unit-image'),
+    unitBtu = d.querySelector('.unit-btu'),
+    step1 = d.querySelector('.step1'),
+    step2 = d.querySelector('.step2'),
+    step3 = d.querySelector('.step3'),
+    closeModalButton = d.querySelectorAll('.close-modal'),
+    detailsModal = d.querySelectorAll('.product-details-modal');
+
+
+
+    const getRecommendation = () => {
+    if (recommendedUnit.name) {
+      unitName.innerHTML = `We recommend this model:<br /> <b>${
+        recommendedUnit.name
+      }</b>`;
+    } else {
+      unitName.textContent = '';
+    }
+    if (recommendedUnit.ton) {
+      unitTonnage.textContent = `Tonnage: ${recommendedUnit.ton}`;
+    } else {
+      unitTonnage.textContent = '';
+    }
+    if (recommendedUnit.seer) {
+      unitSeer.textContent = `SEER: ${recommendedUnit.seer}`;
+    } else {
+      unitSeer.textContent = '';
+    }
+    if (recommendedUnit.btu) {
+      unitBtu.textContent = `BTU: ${recommendedUnit.btu}`;
+    } else {
+      unitBtu.textContent = '';
+    }
+    if (recommendedUnit.imgUrl) {
+      unitImage.innerHTML = `<img src="${
+        recommendedUnit.imgUrl ? recommendedUnit.imgUrl : 'images/no-image.png'
+      }" alt="Image of the unit." />`;
+    } else {
+      unitImage.innerHTML = '';
+    }
+    recommendation.classList.add('show');
+  };
+
+  const closeModal = e => {
+    console.log('close modal');
+    e.currentTarget.classList.add('hey');
+
+    e.currentTarget.parentElement.classList.remove('show');
+  };
+
+  // products.items.forEach(
+  //   item => {
+  //     getRecommendationk
+  //   }
+  // )
+
+  var productRows = document.querySelectorAll('div.row');
+    productRows.forEach(row=>{
+      row.addEventListener('click', e=>{
+        console.log('CLICK');
+        e.currentTarget.nextElementSibling.classList.add('show');
+      })
+    })
+  
+  closeModalButton.forEach(
+    btn => btn.addEventListener('click', closeModal)
+    )
   </script>
 </body>
