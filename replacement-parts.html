@@ -83,6 +83,14 @@
       max-width: 100%;
       object-fit: contain;
     }
+    .product-details img {
+      position: relative;
+      float: left;
+      margin: 0 2rem 0 0;
+      max-height: 25vw;
+      max-width: 25vw;
+      height: 100%;
+    }
     .image-cell {
       min-width: 90px;
       flex: 1;
@@ -106,109 +114,103 @@
     }
   </style>
 
+  <style>
+    .show {
+      width: 80%;
+      /* max-width: 400px; */
+    }
 
+    .product-details-modal {
+      position: absolute;
+      width: 100vw;
+      /* width: 0; */
+      height: 0;
+      left: 0;
+      top: 0;
+      overflow: auto;
+      background: #fff;
+      z-index: 20;
+      filter: opacity(0);
+      transition: 0.5s;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-.show {
-    width: 80%;
-    /* max-width: 400px; */
-  }
+    .product-details-modal.show {
+      width: 100vw;
+      height: 100vh;
+      /* max-width: 650px;   */
+      filter: opacity(1);
+      border: 1rem rgba(0, 0, 0, 0.4) solid;
+      padding: 2rem;
+    }
 
-  .product-details-modal {
-    position: absolute;
-    width: 100vw;
-    /* width: 0; */
-    height: 0;
-    left: 0;
-    top: 0;
-    overflow: auto;
-    background: #fff;
-    z-index: 10;
-    filter: opacity(0);
-    transition: 0.5s;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    aside {
+      color: rgb(94, 94, 94);
+      font-family: Montserrat, arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      margin: 1rem auto 1rem;
+      width: 80%;
+    }
 
-  .product-details-modal.show {
-    width: 100vw;
-    height: 100vh;
-    /* max-width: 650px;   */
-    filter: opacity(1);
-    border: 1rem rgba(0, 0, 0, 0.4) solid;
-    padding: 2rem;
-  }
+    .unit-name {
+      margin-bottom: 2rem;
+    }
 
-  aside {
-    color: rgb(94, 94, 94);
-    font-family: Montserrat, arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    margin: 1rem auto 1rem;
-    width: 80%;
-  }
+    .unit-name b {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
 
-  .unit-name {
-    margin-bottom: 2rem;
-  }
+    .unit-tonnage {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
 
-  .unit-name b {
-    font-size: 1.2rem;
-    font-weight: 800;
-  }
+    .unit-seer {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
 
-  .unit-tonnage {
-    font-size: 1.1rem;
-    font-weight: 400;
-  }
+    .unit-image {
+      float: left;
+      margin-right: 3rem;
+    }
 
-  .unit-seer {
-    font-size: 1.1rem;
-    font-weight: 400;
-  }
+    .product-details-modal {
+      border: 1px solid #00f;
+    }
+    .product-details {
+      position: relative;
+    }
+    
+    .product-detail-line {
+      display: inline-block;
+      margin-right: 1rem;
+    }
 
-  .unit-image {
-    float: left;
-    margin-right: 3rem;
-  }
+    .close-modal {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      padding: 0.5rem;
+      background: #00aeef;
+      color: #fff;
+    }
 
-  .product-details-modal {
-    border: 1px solid #00f;
-  }
-  .product-details {
-    position: relative;
-  }
-
-  .close-modal {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    padding: 0.5rem;
-    background: #00aeef;
-    color: #fff;
-  }
-
-  .phone-button {
-    background: #007fb0;
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 4px;
-    margin: 0 1rem 1rem 1rem;
-  }
-</style>
-
-
+    .phone-button {
+      background: #007fb0;
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0 1rem 1rem 1rem;
+    }
+  </style>
 
   <div class="category">
     <div class="product-rows-box"></div>
-
-
-
-  
-
-
-
   </div>
 
   <script>
@@ -234,7 +236,12 @@
             img: 'https://rynoproducts.com/images/products/xc21-thumb.jpg',
             name: 'Air Conditioner #2',
             seer: '28',
-            btu: 'yy'
+            btu: 'yy',
+            details: {
+              model: 'XXXX',
+              longDesc: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>`
+            }
           },
           {
             img:
@@ -242,7 +249,12 @@
             name: 'Air Conditioner #3',
             desc: 'This is air conditioner number 3.',
             seer: '30',
-            btu: 'zz'
+            btu: 'zz',
+            details: {
+              model: 'XXXX',
+              longDesc: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>`
+            }
           }
         ]
       },
@@ -254,7 +266,12 @@
             name: 'Heat Pump #1',
             desc: 'Description of the First heat pump.',
             seer: '26',
-            btu: 'ww'
+            btu: 'ww',
+            details: {
+              model: 'XXXX',
+              longDesc: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>`
+            }
           }
         ]
       }
@@ -285,8 +302,18 @@
         )
         .concat(seer, '</div>\n          <div class="product-btu">BTU: ')
         .concat(btu, '</div>\n        </section>\n      </div>\n    ')
-        .concat('<div class="product-details-modal"> <button class="close-modal">X</button>         <div class="product-details">' + (img ? '<img src="' + img + '" />' : '') + 'Details:\n Model: ', details.model)
-        .concat('\n'+details.longDesc, '</div></div>');
+        .concat(
+          '<div class="product-details-modal"> <button class="close-modal">X</button>         <div class="product-details">' +
+            (img ? '<img src="' + img + '" />' : ''),
+            
+          '<h2>',$name,'</h2>',
+
+            
+          details.model === void 0 ? '' : '<span class="product-detail-line"><strong>Model:</strong> '+ details.model + '</span>',
+          $seer === void 0 ? '' : '<span class="product-detail-line"><strong>SEER:</strong> '+ $seer + '</span>',
+          $btu === void 0 ? '' : '<span class="product-detail-line"><strong>BTU:</strong> '+ $btu + '</span>'
+        )
+        .concat('\n' + details.longDesc, '</div></div>');
     };
 
     var productsHTML = products.reduce(function(categoryList, category) {
@@ -304,7 +331,7 @@
     }, '');
     var productRowsBox = document.querySelector('.product-rows-box');
     productRowsBox.innerHTML = productsHTML;
-    
+
     var categoryHeaders = document.querySelectorAll('header.row');
     categoryHeaders.forEach(function(header) {
       header.addEventListener('click', function(e) {
@@ -312,30 +339,23 @@
       });
     });
 
-
-
-
     const d = document,
-    closeModalButton = d.querySelectorAll('.close-modal'),
-    detailsModal = d.querySelectorAll('.product-details-modal');
+      closeModalButton = d.querySelectorAll('.close-modal');
 
-  const closeModal = e => {
-    console.log('close modal');
-    e.currentTarget.classList.add('hey');
+    const closeModal = e => {
+      e.currentTarget.parentElement.classList.remove('show');
+    };
 
-    e.currentTarget.parentElement.classList.remove('show');
-  };
-
-  var productRows = document.querySelectorAll('div.row');
-    productRows.forEach(row=>{
-      row.addEventListener('click', e=>{
+    var productRows = document.querySelectorAll('div.row');
+    productRows.forEach(row => {
+      row.addEventListener('click', e => {
         console.log('CLICK');
-        e.currentTarget.nextElementSibling.classList.add('show');
-      })
-    })
-  
-  closeModalButton.forEach(
-    btn => btn.addEventListener('click', closeModal)
-    )
+        var detailsModal = e.currentTarget.nextElementSibling;
+        detailsModal.setAttribute('style', 'top:' + document.body.scrollTop + 'px');
+        detailsModal.classList.add('show');
+      });
+    });
+
+    closeModalButton.forEach(btn => btn.addEventListener('click', closeModal));
   </script>
 </body>
