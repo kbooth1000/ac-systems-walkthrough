@@ -316,51 +316,8 @@
 
 
     const d = document,
-    unitName = d.querySelector('.unit-name'),
-    unitTonnage = d.querySelector('.unit-tonnage'),
-    unitSeer = d.querySelector('.unit-seer'),
-    unitImage = d.querySelector('.unit-image'),
-    unitBtu = d.querySelector('.unit-btu'),
-    step1 = d.querySelector('.step1'),
-    step2 = d.querySelector('.step2'),
-    step3 = d.querySelector('.step3'),
     closeModalButton = d.querySelectorAll('.close-modal'),
     detailsModal = d.querySelectorAll('.product-details-modal');
-
-
-
-    const getRecommendation = () => {
-    if (recommendedUnit.name) {
-      unitName.innerHTML = `We recommend this model:<br /> <b>${
-        recommendedUnit.name
-      }</b>`;
-    } else {
-      unitName.textContent = '';
-    }
-    if (recommendedUnit.ton) {
-      unitTonnage.textContent = `Tonnage: ${recommendedUnit.ton}`;
-    } else {
-      unitTonnage.textContent = '';
-    }
-    if (recommendedUnit.seer) {
-      unitSeer.textContent = `SEER: ${recommendedUnit.seer}`;
-    } else {
-      unitSeer.textContent = '';
-    }
-    if (recommendedUnit.btu) {
-      unitBtu.textContent = `BTU: ${recommendedUnit.btu}`;
-    } else {
-      unitBtu.textContent = '';
-    }
-    if (recommendedUnit.imgUrl) {
-      unitImage.innerHTML = `<img src="${
-        recommendedUnit.imgUrl ? recommendedUnit.imgUrl : 'images/no-image.png'
-      }" alt="Image of the unit." />`;
-    } else {
-      unitImage.innerHTML = '';
-    }
-    recommendation.classList.add('show');
-  };
 
   const closeModal = e => {
     console.log('close modal');
@@ -368,12 +325,6 @@
 
     e.currentTarget.parentElement.classList.remove('show');
   };
-
-  // products.items.forEach(
-  //   item => {
-  //     getRecommendationk
-  //   }
-  // )
 
   var productRows = document.querySelectorAll('div.row');
     productRows.forEach(row=>{
