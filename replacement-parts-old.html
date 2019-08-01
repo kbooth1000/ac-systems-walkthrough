@@ -1,0 +1,96 @@
+'use strict';
+
+var products = [{
+  category: 'Air Conditioners',
+  items: [{
+    img: 'https://rynoproducts.com/images/products/xc25-thumb.jpg',
+    name: 'Air Conditioner #1',
+    desc: 'Description of the First product.',
+    seer: '26',
+    btu: 'xx',
+    details: {
+      model: 'XC25',
+      longDesc: "<p>The Lennox XC25 is a variable-capacity air conditioner. It is considered the most precise and efficient ac unit you can buy! Precise Comfort\xAE technology adjusts cooling output in increments as small as 1%, perfectly matching your energy use with your comfort.</p> \n              <p>SilentComfort\u2122 technology make it 50% quieter than a standard air conditioner! </p>"
+    }
+  }, {
+    img: 'https://rynoproducts.com/images/products/xc21-thumb.jpg',
+    name: 'Air Conditioner #2',
+    seer: '28',
+    btu: 'yy',
+    details: {
+      model: 'XXXX',
+      longDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> \n              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+    }
+  }, {
+    img: 'https://rynoproducts.com/images/products/icomfort-e30-thumb.jpg',
+    name: 'Air Conditioner #3',
+    desc: 'This is air conditioner number 3.',
+    seer: '30',
+    btu: 'zz',
+    details: {
+      model: 'XXXX',
+      longDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> \n              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+    }
+  }]
+}, {
+  category: 'Heat Pumps',
+  items: [{
+    img: 'https://rynoproducts.com/images/products/xp20-thumb.jpg',
+    name: 'Heat Pump #1',
+    desc: 'Description of the First heat pump.',
+    seer: '26',
+    btu: 'ww',
+    details: {
+      model: 'XXXX',
+      longDesc: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> \n              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+    }
+  }]
+}];
+
+var makeProductsHTML = function makeProductsHTML(productDtls) {
+  var $img = productDtls.img,
+      img = $img === void 0 ? '' : $img,
+      $name = productDtls.name,
+      name = $name === void 0 ? '' : $name,
+      $desc = productDtls.desc,
+      desc = $desc === void 0 ? '' : $desc,
+      $seer = productDtls.seer,
+      seer = $seer === void 0 ? '' : $seer,
+      $btu = productDtls.btu,
+      btu = $btu === void 0 ? '' : $btu,
+      $details = productDtls.details,
+      details = $details === void 0 ? '' : $details;
+  return '\n    <div class="row">\n        <div class="image-cell">\n            '.concat(img ? '<img src="' + img + '" />' : '', '\n        </div>\n        <section class="product-info">\n          <h3 class="product-name">').concat(name, '</h3>\n          <div class="product-description">').concat(desc, '</div>\n        </section>\n        <section class="product-specs">\n          <div class="product-seer">SEER: ').concat(seer, '</div>\n          <div class="product-btu">BTU: ').concat(btu, '</div>\n        </section>\n      </div>\n    ').concat('<div class="product-details-modal"> <button class="close-modal">X</button>         <div class="product-details">' + (img ? '<img src="' + img + '" />' : ''), '<h2>', $name, '</h2>', details.model === void 0 ? '' : '<span class="product-detail-line"><strong>Model:</strong> ' + details.model + '</span>', $seer === void 0 ? '' : '<span class="product-detail-line"><strong>SEER:</strong> ' + $seer + '</span>', $btu === void 0 ? '' : '<span class="product-detail-line"><strong>BTU:</strong> ' + $btu + '</span>').concat('\n' + details.longDesc, '</div></div>');
+};
+
+var productsHTML = products.reduce(function (categoryList, category) {
+  return categoryList + ('\n      <div class="category-products">\n      <header class="row">\n      <h2>'.concat(category.category, '</h2>\n    </header>\n      ') + category.items.reduce(function (productsList, product) {
+    return productsList + makeProductsHTML(product);
+  }, '') + '</div>');
+}, '');
+var productRowsBox = document.querySelector('.product-rows-box');
+productRowsBox.innerHTML = productsHTML;
+var categoryHeaders = document.querySelectorAll('header.row');
+categoryHeaders.forEach(function (header) {
+  header.addEventListener('click', function (e) {
+    e.currentTarget.parentElement.classList.toggle('expanded');
+  });
+});
+var d = document,
+    closeModalButton = d.querySelectorAll('.close-modal');
+
+var closeModal = function closeModal(e) {
+  e.currentTarget.parentElement.classList.remove('show');
+};
+
+var productRows = document.querySelectorAll('div.row');
+productRows.forEach(function (row) {
+  row.addEventListener('click', function (e) {
+    var detailsModal = e.currentTarget.nextElementSibling;
+    detailsModal.setAttribute('style', 'top:' + document.body.scrollTop + 'px');
+    detailsModal.classList.add('show');
+  });
+});
+closeModalButton.forEach(function (btn) {
+  return btn.addEventListener('click', closeModal);
+});
