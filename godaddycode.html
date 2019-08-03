@@ -22,7 +22,6 @@
       width: 100%;
       max-width: 550px;
     }
-
     .recommendation-finder {
       color: rgb(94, 94, 94);
       font-family: Montserrat, arial, sans-serif;
@@ -173,7 +172,6 @@
       margin-right: 2.5rem;
       width: 40%;
     }
-
     .unit-image img {
       width: 98%;
     }
@@ -202,14 +200,12 @@
       flex-direction: column;
       justify-content: flex-start;
     }
-
     .unit-guarantees figure img {
       width: 100%;
       max-width: 84px;
       max-height: 84px;
       margin-bottom: 0.5rem;
     }
-
     .unit-guarantees figure figcaption {
       font-size: 1.5rem;
     }
@@ -294,47 +290,6 @@
       margin: 0 2rem;
     }
 
-    .row {
-      display: flex;
-      justify-content: space-between;
-      align-content: center;
-      align-items: center;
-      border: #ddd solid 1px;
-      margin-bottom: 3rem;
-    }
-    .image-cell {
-      min-width: 90px;
-      flex: 1;
-      position: relative;
-      display: block;
-      /* background: #848; */
-      width: 100%;
-      height: 80px;
-    }
-    .product-info {
-      border-right: 1px #888 dotted;
-    }
-    .product-info,
-    .product-specs {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-content: flex-start;
-      flex: 4;
-      margin: 1rem;
-    }
-    .row h3 {
-      margin: 0;
-    }
-    .product-image {
-      position: relative;
-      float: left;
-      margin: 0 2rem 0 0;
-      max-height: 25vw;
-      max-width: 25vw;
-      height: 100%;
-    }
-
     @media only screen and (min-width: 450px) {
       .unit-guarantees figure {
         width: 40%;
@@ -349,7 +304,6 @@
         justify-content: space-around;
         flex-direction: row;
       }
-
       .unit-guarantees figure {
         width: 24%;
         text-align: left;
@@ -363,19 +317,18 @@
     }
 
     @media only screen and (max-width: 450px) {
-      .show {
+      .show  {
         width: 85% !important;
       }
 
       fieldset,
-      .fieldset {
+      .fieldset  {
         padding: 0.5rem !important;
         border: 0 !important;
         font-size: 1rem !important;
         width: 90vw !important;
       }
-
-      legend {
+      legend  {
         font-size: 0.9rem;
       }
 
@@ -385,12 +338,12 @@
       }
 
       input,
-      select {
+       select {
         margin: 0.5rem 0.5rem 0.1rem !important;
         border: 1px #ccc solid !important;
       }
 
-      select {
+      select  {
         font-size: 0.85rem !important;
       }
     }
@@ -444,7 +397,7 @@
           name="heat-source"
           id="electric"
           value="pump"
-        /><label for="electric">Electric/Heat</label> Pump<br />
+        /><label for="electric">Electric/Heat Pump</label><br />
       </fieldset>
       <!-- <input type="submit" value="Submit" class="submit-button" /> -->
     </form>
@@ -578,12 +531,6 @@
           src="https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/a5e3e12e-61cd-4def-87ba-708cc8c5617f.png/:/rs=w:370,m,cg:true"
           alt="Home Advisor -- Screened & Approved"
         />
-      </div>
-
-      <!-- REPLACEMENT PARTS BOX   ########################### -->
-      <div class="replacement-parts-container">
-        <h3>Recommended Replacement Parts:</h3>
-        <div class="replacement-products"></div>
       </div>
     </div>
   </section>
@@ -1245,7 +1192,7 @@
       '30518'
     ];
     var heatPumpImgUrl =
-      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/heat-pump-system-0001.png/:/rs=w:370,m,cg:true';
+      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/heatPumpSystem1.png/:/';
     var electricUnits = {
       sf800: {
         ton: 1.5,
@@ -1312,7 +1259,7 @@
       }
     };
     var gasImgUrl =
-      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/gas%20split%20system%20-%20new.png';
+      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/gasSplitSystem2.png/:/';
     var gasUnits = {
       sf800: {
         name: '1.5 Ton 14 SEER 80% AFUE 60K BTU System',
@@ -1378,338 +1325,8 @@
         pricePackage: 4999
       }
     };
-
-    var imgUrlACondenserEvapCoil =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/Air%20conditioner%20and%20heat%20pump%20with%20coil.jpg/:/',
-    imgUrlFurnaceEvapCoil =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/furnaceevaporatorcoilreplacement.png/:/',
-    imgUrlACCondenserUnitOnly =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/airConditioner%201%20resized.png/:/',
-    imgUrlHeatPumpUnitOnly =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/heatPump%202%20resized.png/:/',
-    imgUrlEvapCoil =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/uncased%20coil%201%20resized.png/:/',
-    imgUrlAirHandler =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/airHandler%201%20resized.png/:/',
-    imgUrlFurnace =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/gasFurnace%201%20resized%203.png/:/';
-
-    var replacementParts = [
-    {
-    category: 'A/C Condenser &amp; Evaporator Coil Replacement',
-    systemHeatingType: 'pump',
-    sf800: {
-    name: '1.5 Ton',
-    ton: 1.5,
-    seer: 1111,
-    btu: 1111,
-    imgUrl: imgUrlACondenserEvapCoil,
-    price: 2999,
-    desc: 'Description.',
-    details: {
-    model: 'XXXX',
-    longDesc:
-    `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. </p> \n <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.</p>`
-    }
-    },
-    sf1000: {
-    name: '2.0 Ton',
-    ton: 2.0,
-    price: 3525,
-    imgUrl: imgUrlACondenserEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1200: {
-    name: '2.5 Ton',
-    ton: 2.5,
-    price: 3715,
-    imgUrl: imgUrlACondenserEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1400: {
-    name: '3.0 Ton',
-    ton: 3.0,
-    price: 3825,
-    imgUrl: imgUrlACondenserEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1700: {
-    name: '3.5 Ton',
-    ton: 3.5,
-    price: 3999,
-    imgUrl: imgUrlACondenserEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf2000: {
-    name: '4.0 Ton',
-    ton: 4.0,
-    price: 4050,
-    imgUrl: imgUrlACondenserEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf2500: {
-    name: '5.0 Ton',
-    ton: 5.0,
-    price: 4279,
-    imgUrl: imgUrlACondenserEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    }
-    },
-
-    {
-    category: 'Furnace &amp; Evaporator Coil Replacement',
-    systemHeatingType: 'furnace',
-    sf800: {
-    name: '1.5 Ton',
-    ton: 1.5,
-    seer: 1111,
-    btu: 1111,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    price: 2825,
-    desc: 'Description.',
-    details: {
-    model: 'XXXX',
-    longDesc:
-    `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. </p> \n <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.</p>`
-    }
-    },
-    sf1000: {
-    name: '2.0 Ton',
-    ton: 2.0,
-    price: 2900,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1200: {
-    name: '2.5 Ton',
-    ton: 2.5,
-    price: 2999,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1400: {
-    name: '3.0 Ton',
-    ton: 3.0,
-    price: 3175,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1700: {
-    name: '3.5 Ton',
-    ton: 3.5,
-    price: 3299,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf2000: {
-    name: '4.0 Ton',
-    ton: 4.0,
-    price: 3375,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf2500: {
-    name: '5.0 Ton',
-    ton: 5.0,
-    price: 3425,
-    imgUrl: imgUrlFurnaceEvapCoil,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-  },
-
-    {
-    category: 'A/C Condenser Unit Only Replacement',
-    systemHeatingType: 'pump',
-    sf800: {
-    name: '1.5 Ton',
-    ton: '1.5',
-    price: 1999,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1000: {
-    name: '2.0 Ton',
-    ton: '2.0',
-    price: 2025,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1200: {
-    name: '2.5 Ton',
-    ton: '2.5',
-    price: 2175,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1400: {
-    name: '3.0 Ton',
-    ton: '3.0',
-    price: 2299,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf1700: {
-    name: '3.5 Ton',
-    ton: '3.5',
-    price: 2399,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf2000: {
-    name: '4.0 Ton',
-    ton: '4.0',
-    price: 2499,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    },
-    sf2500: {
-    name: '5.0 Ton',
-    ton: '5.0',
-    price: 2699,
-    imgUrl: imgUrlACCondenserUnitOnly,
-    desc: 'Description.',
-    seer: 1111,
-    btu: 1111,
-    details: {}
-    }
-    },
-    {
-    category: 'Heat Pump Unit Only Replacement',
-    systemHeatingType: 'pump',
-    sf800: { name: '1.5 Ton', ton: 1.5,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 2399 },
-    sf1000: { name: '2.0 Ton', ton: 2.0,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 2499 },
-    sf1200: { name: '2.5 Ton', ton: 2.5,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 2599 },
-    sf1400: { name: '3.0 Ton', ton: 3.0,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 2699 },
-    sf1700: { name: '3.5 Ton', ton: 3.5,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 2725 },
-    sf2000: { name: '4.0 Ton', ton: 4.0,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 2799 },
-    sf2500: { name: '5.0 Ton', ton: 5.0,
-    imgUrl: imgUrlHeatPumpUnitOnly, price: 3199 }
-    },
-
-    {
-    category: 'Evaporator Coil Replacement',
-    systemHeatingType: 'furnace',
-    sf800: { name: '1.5 Ton', ton: 1.5,
-    imgUrl: imgUrlEvapCoil, price: 1499 },
-    sf1000: { name: '2.0 Ton', ton: 2.0,
-    imgUrl: imgUrlEvapCoil, price: 1599 },
-    sf1200: { name: '2.5 Ton', ton: 2.5,
-    imgUrl: imgUrlEvapCoil, price: 1699 },
-    sf1400: { name: '3.0 Ton', ton: 3.0,
-    imgUrl: imgUrlEvapCoil, price: 1725 },
-    sf1700: { name: '3.5 Ton', ton: 3.5,
-    imgUrl: imgUrlEvapCoil, price: 1825 },
-    sf2000: { name: '4.0 Ton', ton: 4.0,
-    imgUrl: imgUrlEvapCoil, price: 1925 },
-    sf2500: { name: '5.0 Ton', ton: 5.0,
-    imgUrl: imgUrlEvapCoil, price: 1999 }
-    },
-    {
-    category: 'Air Handler Replacement',
-    systemHeatingType: 'pump',
-    sf800: { name: '1.5 Ton', ton: 1.5,
-    imgUrl: imgUrlAirHandler, price: 2100 },
-    sf1000: { name: '2.0 Ton', ton: 2.0,
-    imgUrl: imgUrlAirHandler, price: 2199 },
-    sf1200: { name: '2.5 Ton', ton: 2.5,
-    imgUrl: imgUrlAirHandler, price: 2325 },
-    sf1400: { name: '3.0 Ton', ton: 3.0,
-    imgUrl: imgUrlAirHandler, price: 2550 },
-    sf1700: { name: '3.5 Ton', ton: 3.5,
-    imgUrl: imgUrlAirHandler, price: 2625 },
-    sf2000: { name: '4.0 Ton', ton: 4.0,
-    imgUrl: imgUrlAirHandler, price: 2799 },
-    sf2500: { name: '5.0 Ton', ton: 5.0,
-    imgUrl: imgUrlAirHandler, price: 2999 }
-    },
-    {
-    category: 'Furnace Replacement',
-    systemHeatingType: 'furnace',
-    sf800: { name: '1.5 Ton', ton: 1.5,
-    imgUrl: imgUrlFurnace, price: 2125, btu: 40 },
-    sf1000: { name: '2.0 Ton', ton: 2.0,
-    imgUrl: imgUrlFurnace, price: 2299, btu: 40 },
-    sf1200: { name: '2.5 Ton', ton: 2.5,
-    imgUrl: imgUrlFurnace, price: 2325, btu: 60 },
-    sf1400: { name: '3.0 Ton', ton: 3.0,
-    imgUrl: imgUrlFurnace, price: 2399, btu: 60 },
-    sf1700: { name: '3.5 Ton', ton: 3.5,
-    imgUrl: imgUrlFurnace, price: 2499, btu: 80 },
-    sf2000: { name: '4.0 Ton', ton: 4.0,
-    imgUrl: imgUrlFurnace, price: 2599, btu: 80 },
-    sf2500: { name: '5.0 Ton', ton: 5.0,
-    imgUrl: imgUrlFurnace, price: 2625, btu: 100 }
-    }
-    ];
-
-
     var asides = document.querySelectorAll('aside');
     var recommendedUnit = null;
-    var recommendedReplacements = [];
     var heatingType = '';
     var d = document,
       unitName = d.querySelector('.unit-name'),
@@ -1720,7 +1337,6 @@
       unitPrice = d.querySelector('.unit-price'),
       unitPricePackage = d.querySelector('.unit-price-package'),
       unitFinancingBox = d.querySelector('.financing-box'),
-      replacementProducts = d.querySelector('.replacement-products'),
       step1 = d.querySelector('.step1'),
       step2 = d.querySelector('.step2'),
       step3 = d.querySelector('.step3'),
@@ -1785,7 +1401,7 @@
       }
     };
 
-    var getHeatingType = function(e) {
+    var getHeatingType = function getHeatingType(e) {
       console.log('2:', e.target.value);
       step3.classList.add('show');
       step3.classList.add('active');
@@ -1793,7 +1409,7 @@
       step2.classList.remove('active');
     };
 
-    var getRecUnit = function(val) {
+    setRecUnit = function setRecUnit(val) {
       if (heatingType === 'pump') {
         return electricUnits['sf'.concat(val)];
       } else if (heatingType === 'furnace') {
@@ -1801,18 +1417,7 @@
       }
     };
 
-    var getRecReplacements = function(val) {
-      return replacementParts
-        .filter(part => heatingType === part.systemHeatingType)
-        .map(part => {
-          if (heatingType === part.systemHeatingType) {
-            console.log({ name: part.category, info: part['sf'.concat(val)] });
-            return { name: part.category, info: part['sf'.concat(val)] };
-          }
-        });
-    };
-
-    var getRecommendation = function() {
+    var getRecommendation = function getRecommendation() {
       if (recommendedUnit.name) {
         unitName.innerHTML = 'We recommend this high-efficiency system package:<br /> <b>'.concat(
           recommendedUnit.name,
@@ -1891,62 +1496,33 @@
         );
       }
 
-      if (recommendedReplacements.length > 0) {
-        console.log('recommendedReplacements', recommendedReplacements);
-
-        recommendedReplacements.map((part, i) => {
-          if (part.name) {
-            replacementProducts.innerHTML =
-              '<div class="row">' +
-              '<div class="image-cell">' +
-              '<img class="product-image" src="' +
-              part.info.imgUrl +
-              '">' +
-              '</div>' +
-              '<section class="product-info">' +
-              '<h3 class="product-name">' +
-              part.name +
-              '</h3>' +
-              '<div class="product-description">Description.</div>' +
-              '</section>' +
-              '<section class="product-specs">' +
-              '<div class="replacement-product-price"> $' +
-              part.info.price +
-              '</div>' +
-              ' <div class="product-seer">SEER: ' +
-              part.info.seer +
-              '</div>' +
-              ' <div class="product-btu">BTU: ' +
-              part.info.btu +
-              '</div>' +
-              '</section>' +
-              '</div>';
-          }
-        });
-      }
-
       recommendation.classList.add('show');
     };
 
-    var getTonnage = function(e) {
+    var getTonnage = function getTonnage(e) {
       d.querySelector(
         '.footage-dropdown option[value="' + e.target.value + '"]'
       ).selected = 'selected';
-      recommendedUnit = getRecUnit(e.target.value);
-      recommendedReplacements = getRecReplacements(e.target.value);
+      recommendedUnit = setRecUnit(e.target.value);
+      console.log('tonnage');
+      console.log('val: ', e.target.value, 'recommended: ', recommendedUnit);
       getRecommendation();
     };
 
-    var getFootage = function(e) {
+    var getFootage = function getFootage(e) {
       d.querySelector(
         '.tonnage-dropdown option[value="' + e.target.value + '"]'
       ).selected = 'selected';
-      recommendedUnit = getRecUnit(e.target.value);
-      recommendedReplacements = getRecReplacements(e.target.value);
+      recommendedUnit = setRecUnit(e.target.value);
+      console.log('footage');
+      console.log('val: ', e.target.value, 'recommended: ', recommendedUnit);
       getRecommendation();
+      d.querySelector(
+        '.tonnage-dropdown option[value="' + e.target.value + '"'
+      ).setAttribute('selected', true);
     };
 
-    var closeModal = function(e) {
+    var closeModal = function closeModal(e) {
       recommendation.classList.remove('show');
       d.querySelector('.footage-dropdown option[value="0"]').selected =
         'selected';

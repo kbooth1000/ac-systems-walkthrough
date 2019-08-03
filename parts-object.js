@@ -3,7 +3,7 @@ var imgUrlACondenserEvapCoil =
   imgUrlFurnaceEvapCoil =
     'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/furnaceevaporatorcoilreplacement.png/:/',
   imgUrlACCondenserUnitOnly =
-    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/airConditioner%201%20resized.png/:/,
+    'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/airConditioner%201%20resized.png/:/',
   imgUrlHeatPumpUnitOnly =
     'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/heatPump%202%20resized.png/:/',
   imgUrlEvapCoil =
@@ -16,6 +16,7 @@ var imgUrlACondenserEvapCoil =
 var replacementParts = [
   {
     category: 'A/C Condenser &amp; Evaporator Coil Replacement',
+    systemHeatingType: 'pump',
     sf800: {
       name: '1.5 Ton',
       ton: 1.5,
@@ -94,6 +95,7 @@ var replacementParts = [
 
   {
     category: 'Furnace &amp; Evaporator Coil Replacement',
+    systemHeatingType: 'furnace',
     sf800: {
       name: '1.5 Ton',
       ton: 1.5,
@@ -168,5 +170,125 @@ var replacementParts = [
       btu: 1111,
       details: {}
     }
+  },
+
+  {
+    category: 'A/C Condenser Unit Only Replacement',
+    systemHeatingType: 'pump',
+    sf800: {
+      name: '1.5 Ton',
+      ton: '1.5',
+      price: 1999,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    },
+    sf1000: {
+      name: '2.0 Ton',
+      ton: '2.0',
+      price: 2025,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    },
+    sf1200: {
+      name: '2.5 Ton',
+      ton: '2.5',
+      price: 2175,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    },
+    sf1400: {
+      name: '3.0 Ton',
+      ton: '3.0',
+      price: 2299,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    },
+    sf1700: {
+      name: '3.5 Ton',
+      ton: '3.5',
+      price: 2399,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    },
+    sf2000: {
+      name: '4.0 Ton',
+      ton: '4.0',
+      price: 2499,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    },
+    sf2500: {
+      name: '5.0 Ton',
+      ton: '5.0',
+      price: 2699,
+      imgUrl: imgUrlACCondenserUnitOnly,
+      desc: 'Description.',
+      seer: 1111,
+      btu: 1111,
+      details: {}
+    }
+  },
+  {
+    category: 'Heat Pump Unit Only Replacement',
+    systemHeatingType: 'pump',
+    sf800: { name: '1.5 Ton', ton: 1.5, price: 2399 },
+    sf1000: { name: '2.0 Ton', ton: 2.0, price: 2499 },
+    sf1200: { name: '2.5 Ton', ton: 2.5, price: 2599 },
+    sf1400: { name: '3.0 Ton', ton: 3.0, price: 2699 },
+    sf1700: { name: '3.5 Ton', ton: 3.5, price: 2725 },
+    sf2000: { name: '4.0 Ton', ton: 4.0, price: 2799 },
+    sf2500: { name: '5.0 Ton', ton: 5.0, price: 3199 }
+  },
+
+  {
+    category: 'Evaporator Coil Replacement',
+    systemHeatingType: 'furnace',
+    sf800: { name: '1.5 Ton', ton: 1.5, price: 1499 },
+    sf1000: { name: '2.0 Ton', ton: 2.0, price: 1599 },
+    sf1200: { name: '2.5 Ton', ton: 2.5, price: 1699 },
+    sf1400: { name: '3.0 Ton', ton: 3.0, price: 1725 },
+    sf1700: { name: '3.5 Ton', ton: 3.5, price: 1825 },
+    sf2000: { name: '4.0 Ton', ton: 4.0, price: 1925 },
+    sf2500: { name: '5.0 Ton', ton: 5.0, price: 1999 }
+  },
+  {
+    category: 'Air Handler Replacement',
+    systemHeatingType: 'pump',
+    sf800: { name: '1.5 Ton', ton: 1.5, price: 2100 },
+    sf1000: { name: '2.0 Ton', ton: 2.0, price: 2199 },
+    sf1200: { name: '2.5 Ton', ton: 2.5, price: 2325 },
+    sf1400: { name: '3.0 Ton', ton: 3.0, price: 2550 },
+    sf1700: { name: '3.5 Ton', ton: 3.5, price: 2625 },
+    sf2000: { name: '4.0 Ton', ton: 4.0, price: 2799 },
+    sf2500: { name: '5.0 Ton', ton: 5.0, price: 2999 }
+  },
+  {
+    category: 'Furnace Replacement',
+    systemHeatingType: 'furnace',
+    sf800: { name: '1.5 Ton', ton: 1.5, price: 2125, btu: 40 },
+    sf1000: { name: '2.0 Ton', ton: 2.0, price: 2299, btu: 40 },
+    sf1200: { name: '2.5 Ton', ton: 2.5, price: 2325, btu: 60 },
+    sf1400: { name: '3.0 Ton', ton: 3.0, price: 2399, btu: 60 },
+    sf1700: { name: '3.5 Ton', ton: 3.5, price: 2499, btu: 80 },
+    sf2000: { name: '4.0 Ton', ton: 4.0, price: 2599, btu: 80 },
+    sf2500: { name: '5.0 Ton', ton: 5.0, price: 2625, btu: 100 }
   }
 ];
