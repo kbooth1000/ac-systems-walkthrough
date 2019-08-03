@@ -444,7 +444,7 @@
           name="heat-source"
           id="electric"
           value="pump"
-        /><label for="electric">Electric/Heat</label> Pump<br />
+        /><label for="electric">Electric/Heat Pump</label> <br />
       </fieldset>
       <!-- <input type="submit" value="Submit" class="submit-button" /> -->
     </form>
@@ -1245,7 +1245,7 @@
       '30518'
     ];
     var heatPumpImgUrl =
-      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/heat-pump-system-0001.png/:/rs=w:370,m,cg:true';
+      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/heatPumpSystem1.png/:/';
     var electricUnits = {
       sf800: {
         ton: 1.5,
@@ -1312,7 +1312,7 @@
       }
     };
     var gasImgUrl =
-      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/gas%20split%20system%20-%20new.png';
+      'https://img1.wsimg.com/isteam/ip/ec3d7ae1-84c5-494d-939d-ab7eac153ebf/gasSplitSystem2.png/:/';
     var gasUnits = {
       sf800: {
         name: '1.5 Ton 14 SEER 80% AFUE 60K BTU System',
@@ -1894,9 +1894,13 @@
       if (recommendedReplacements.length > 0) {
         console.log('recommendedReplacements', recommendedReplacements);
 
-        recommendedReplacements.map((part, i) => {
+        replacementProducts.innerHTML = recommendedReplacements
+        .reduce((parts, part) => {
+          console.log('check::::');
+          
+          var thisPart;
           if (part.name) {
-            replacementProducts.innerHTML =
+            thisPart = 
               '<div class="row">' +
               '<div class="image-cell">' +
               '<img class="product-image" src="' +
@@ -1913,16 +1917,22 @@
               '<div class="replacement-product-price"> $' +
               part.info.price +
               '</div>' +
+              ' <div class="product-seer">Tonnage: ' +
+                part.info.ton +
+                '</div>' +
               ' <div class="product-seer">SEER: ' +
-              part.info.seer +
-              '</div>' +
+                part.info.seer +
+                '</div>' +
               ' <div class="product-btu">BTU: ' +
               part.info.btu +
               '</div>' +
               '</section>' +
               '</div>';
           }
-        });
+          console.log('REDUCE: ', parts, thisPart);
+          
+          return parts + thisPart;
+        }, '');
       }
 
       recommendation.classList.add('show');
