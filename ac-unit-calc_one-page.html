@@ -335,6 +335,14 @@
       height: 100%;
     }
 
+
+    .full-system-details {
+      border: 2px solid #c33;
+    }
+    .replacement-parts-box {
+            border: 2px solid #33c;
+    }
+
     @media only screen and (min-width: 450px) {
       .unit-guarantees figure {
         width: 40%;
@@ -498,13 +506,24 @@
 
     <div class="recommendation">
       <button class="close-modal">X</button>
-      <div class="unit-name"></div>
-      <div class="unit-image"></div>
-      <div class="unit-tonnage"></div>
-      <div class="unit-seer"></div>
-      <div class="unit-btu"></div>
-      <div class="unit-price"></div>
-      <div class="unit-price-package"></div>
+
+      <!-- FULL SYSTEM BOX   ########################### -->
+      <div class="full-system-details">
+        <div class="unit-name"></div>
+        <div class="unit-image"></div>
+        <div class="unit-tonnage"></div>
+        <div class="unit-seer"></div>
+        <div class="unit-btu"></div>
+        <div class="unit-price"></div>
+        <div class="unit-price-package"></div>
+      </div>
+
+      <!-- REPLACEMENT PARTS BOX   ########################### -->
+      <div class="replacement-parts-box">
+        <h3>Recommended Replacement Parts:</h3>
+        <div class="replacement-products"></div>
+      </div>
+
       <a
         href="https://rockruthhvac.com/finacing-available"
         class="financing-box"
@@ -580,11 +599,7 @@
         />
       </div>
 
-      <!-- REPLACEMENT PARTS BOX   ########################### -->
-      <div class="replacement-parts-container">
-        <h3>Recommended Replacement Parts:</h3>
-        <div class="replacement-products"></div>
-      </div>
+      
     </div>
   </section>
 
