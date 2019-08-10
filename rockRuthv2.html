@@ -35,7 +35,7 @@
           font-weight: 400;
           max-width: 1150px;
           background: #fff;
-          padding: 1.5rem;
+          /* padding: 1.5rem; */
           width: 100%;
         }    
         form,
@@ -81,7 +81,7 @@
           color: #007fb0;
         }
         .show {
-          width: 80%;
+          width: 90%;
           /* max-width: 400px; */
         }    
         .recommendation {
@@ -269,6 +269,7 @@
           align-items: center;
           border: #ddd solid 1px;
           margin-bottom: 3rem;
+          flex-wrap: wrap;
         }
         .image-cell {
           min-width: 90px;
@@ -293,6 +294,8 @@
         }
         .row h3 {
           margin: 0;
+          padding: 4px;
+          font-size: 1rem;
         }
         .product-image {
           position: relative;
@@ -318,6 +321,9 @@
           .unit-guarantees figure {
             width: 40%;
           }
+          .row h3 {
+            font-size: 1.1rem;
+          }
         }
         @media only screen and (min-width: 1000px) {
           .step3 > fieldset > div,
@@ -338,9 +344,7 @@
           }
         }
         @media only screen and (max-width: 450px) {
-          .show {
-            width: 85% !important;
-          }
+          
           fieldset,
           .fieldset {
             padding: 0.5rem !important;
@@ -363,6 +367,15 @@
           select {
             font-size: 0.85rem !important;
           }
+          .image-cell {
+            flex: auto;
+          }
+          .product-image {
+            margin: -.7rem 2rem 0 -.5rem;
+            max-height: 28vw;
+            max-width: 28vw;
+          }
+
         }
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           /* IE-specific CSS */
@@ -2067,6 +2080,8 @@
           d.querySelector('.tonnage-dropdown option[value="0"]').selected =
             'selected';
           recommendation.scrollTo(0, 0);
+          d.querySelector('#full-sys').checked=false;
+        d.querySelector('#replace').checked=false;
         };
         step1.addEventListener('submit', checkZip);
         step2.addEventListener('change', getHeatingType);
